@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "47a36525-7e2c-4174-a56a-b91d6059e53f",
+		"name": "chat-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYWM4MTE2NGQ5OTI2MmIzNGNlM2JhZCIsImlhdCI6MTU1NDgwOTEyMywiZXhwIjoxNTU0OTgxOTIzfQ.TeGGsYJhFb67SlW8tAmirYMTG8GVy9ikf-egrVOP77U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYWM4MTE2NGQ5OTI2MmIzNGNlM2JhZCIsImlhdCI6MTU1NDgwOTEyMywiZXhwIjoxNTU0OTgxOTIzfQ.TeGGsYJhFb67SlW8tAmirYMTG8GVy9ikf-egrVOP77U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"bassant\",\n\t\"email\":\"bassant@gmail.com\",\n\t\"age\":23,\n\t\"password\":\"1234\",\n\t\"gender\":\"female\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"aliaa\",\n\t\"password\": \"1234\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYWM4MTE2NGQ5OTI2MmIzNGNlM2JhZCIsImlhdCI6MTU1NDgwOTEyMywiZXhwIjoxNTU0OTgxOTIzfQ.TeGGsYJhFb67SlW8tAmirYMTG8GVy9ikf-egrVOP77U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country\":\"USA\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change user password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYWNkYjJiMWRmNTFiMjVmODc1OGU5MyIsImlhdCI6MTU1NDg0MDQzNCwiZXhwIjoxNTU1MDEzMjM0fQ.C9A_yFUVGrtwq2eKQxn8QjuScph451bQvOpg4InfeEc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"passsword\":\"1234\",\n\t\"newPassword\":\"abcd\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/users/pass",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"users",
+						"pass"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYWM4MTE2NGQ5OTI2MmIzNGNlM2JhZCIsImlhdCI6MTU1NDgwOTEyMywiZXhwIjoxNTU0OTgxOTIzfQ.TeGGsYJhFb67SlW8tAmirYMTG8GVy9ikf-egrVOP77U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country\":\"USA\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYWNkYjJiMWRmNTFiMjVmODc1OGU5MyIsImlhdCI6MTU1NDgzMjE5NCwiZXhwIjoxNTU1MDA0OTk0fQ.Q_xcR-adXScAEaSp7Q1e1iJCNWkMNslu4ilt6yxefCA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reciever\":\"5cacdb391df51b25f8758e95\",\n\t\"message\":\"hello rania\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get sent messages",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYWNkYjJiMWRmNTFiMjVmODc1OGU5MyIsImlhdCI6MTU1NDgzMjE5NCwiZXhwIjoxNTU1MDA0OTk0fQ.Q_xcR-adXScAEaSp7Q1e1iJCNWkMNslu4ilt6yxefCA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/messages/sent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"messages",
+						"sent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get recieved messages",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYWNkYjJiMWRmNTFiMjVmODc1OGU5MyIsImlhdCI6MTU1NDgzMjE5NCwiZXhwIjoxNTU1MDA0OTk0fQ.Q_xcR-adXScAEaSp7Q1e1iJCNWkMNslu4ilt6yxefCA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3001/backend/messages/recieved",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"backend",
+						"messages",
+						"recieved"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

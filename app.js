@@ -1,19 +1,14 @@
+require('./db');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var createError = require('http-errors');
 var sassMiddleware = require('node-sass-middleware');
-
-var indexRouter = require('./routes/index');
+// var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var messagesRouter = require('./routes/messages');
-
-
 var app = express();
-require('./db');
-
-
 
 app.use(logger('dev'));
 app.use(express.json());
