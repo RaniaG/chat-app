@@ -4,9 +4,12 @@ const createError = require('http-errors');
 var integerValidator = require('mongoose-integer');
 let mongooseHidden = require('mongoose-hidden')()
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const util = require('util');
 
-// const util = require('util');
+const jwtSignPromise = util.promisify(jwt.sign);
 
+const jwtKey = 'secretKey';
 var Schema = mongoose.Schema;
 
 
@@ -62,12 +65,19 @@ const userSchema = new Schema({
 //     });
 
 
-userSchema.pre('save', function (arg) {
-    bcrypt.hash(this.password, saltRounds).then(function (hash) {
-        this.password = hash;
-    }).catch(err => next(createError(500, err)))
+userSchema.pre('save', async function (arg) {
+    const hash = await bcrypt.hash(this.password, saltRounds);
+    this.password = hash;
 }
 )
+
+userSchema.method('verifyPassword', async function (password) {
+    return bcrypt.compare(password, this.password);
+})
+
+userSchema.method('generateToken', function () {
+    return jwtSignPromise({ id: this._id, username: this.username }, jwtKey, { expiresIn: '2d' })
+})
 
 
 userSchema.plugin(integerValidator);

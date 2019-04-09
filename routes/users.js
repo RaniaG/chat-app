@@ -58,4 +58,15 @@ router.delete('/', async (req, res, next) => {
   }
 });
 
+/** Login */
+router.post('/login', async (req, res, next) => {
+  try {
+    const user = await UserModel.findOne({ username: req.body.username });
+    if (!await user.verifyPassword(req.body.password)) throw 'invalid password'
+    const token = await user.generateToken();
+    res.send(token);
+  } catch (e) {
+    next(createError(401, 'invalid credentials'));
+  }
+});
 module.exports = router;
