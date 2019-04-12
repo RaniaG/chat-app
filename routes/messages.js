@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const MessagesModel = require('../models/message');
 var createError = require('http-errors');
-const authMiddleware= require('../middlewares/authorization');
+const authMiddleware = require('../middlewares/authorization');
 
 
 router.use(authMiddleware);
@@ -12,12 +12,12 @@ router.get('/sent', async (req, res, next) => {
     try {
         // debugger;
         await MessagesModel
-        .find({ sender: req.loggedUser.id })
-        .populate('reciever','username')
-        .populate('sender','username')
-        .exec(function (err,messages){
-            res.send(messages);
-        })
+            .find({ sender: req.loggedUser.id })
+            .populate('reciever', 'username')
+            .populate('sender', 'username')
+            .exec(function (err, messages) {
+                res.send(messages);
+            })
     }
     catch (e) {
         next(createError(401, 'cant retrieve messages'))
@@ -28,12 +28,12 @@ router.get('/sent', async (req, res, next) => {
 router.get('/recieved', async (req, res, next) => {
     try {
         await MessagesModel
-        .find({ reciever: req.loggedUser.id })
-        .populate('reciever','username')
-        .populate('sender','username')
-        .exec(function (err,messages){
-            res.send(messages);
-        })
+            .find({ reciever: req.loggedUser.id })
+            .populate('reciever', 'username')
+            .populate('sender', 'username')
+            .exec(function (err, messages) {
+                res.send(messages);
+            })
     }
     catch (e) {
         next(createError(401, 'cant retrieve messages'));
@@ -44,7 +44,7 @@ router.get('/recieved', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         // debugger;
-        await MessagesModel.create({...req.body,sender:req.loggedUser._id});
+        await MessagesModel.create({ ...req.body, sender: req.loggedUser._id });
         res.send(201);
     } catch (e) {
         next(createError(400, 'unable to send message'));
@@ -64,6 +64,7 @@ router.patch('/', async (req, res, next) => {
 
 /* delete a message */
 router.delete('/', async (req, res, next) => {
+    debugger;
     try {
         await MessagesModel.deleteOne({ _id: req.body.id });
         res.send(200);
